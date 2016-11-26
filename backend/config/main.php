@@ -14,6 +14,7 @@ return [
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
+
 //        'user' => [
 //            'identityClass' => 'common\models\User',
 //            'enableAutoLogin' => true,
@@ -52,7 +53,7 @@ return [
             'enableUnconfirmedLogin' => true,
             'confirmWithin' => 21600,
             'cost' => 12,
-            'admins' => ['admin']
+            'admins' => ['wendy']
         ],
     ],
 ];
