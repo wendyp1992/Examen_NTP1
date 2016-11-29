@@ -62,6 +62,11 @@ class SiteController extends Controller
     {
         return $this->render('index');
     }
+    
+    public function actionDeuda()
+    {
+        return $this->render('deuda');
+    }
 
     /**
      * Login action.
