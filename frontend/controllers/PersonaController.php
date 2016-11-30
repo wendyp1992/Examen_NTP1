@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\controllers;
+namespace frontend\controllers;
 
 use Yii;
 use app\models\Persona;
@@ -64,6 +64,7 @@ class PersonaController extends Controller
     public function actionCreate()
     {
         $model = new Persona();
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->idPersona]);
         } else {

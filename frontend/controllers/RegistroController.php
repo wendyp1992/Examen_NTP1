@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\db\ActiveQuery;
+
 /**
  * RegistroController implements the CRUD actions for Registro model.
  */
@@ -60,10 +61,10 @@ class RegistroController extends Controller {
      */
     public function actionCreate() {
         $model = new Registro();
-        
-        $prod = \app\models\Producto::find()->where(['idP'=>1])->one();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->db->createCommand()->update('persona', ['saldo' =>$prod->precio])->execute();
+            $prod = \app\models\Producto::find()->where(['idP' => $model->idP])->one();
+            $suma = \app\models\Persona::find()->where(['iduser' => $model->uid])->one();
+            Yii::$app->db->createCommand()->update('persona', ['saldo' => $suma->saldo+$prod->precio], ['iduser' => Yii::$app->user->identity->id])->execute();
             return $this->redirect(['view', 'id' => $model->idR]);
         } else {
             return $this->render('create', [

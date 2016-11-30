@@ -50,7 +50,7 @@ AppAsset::register($this);
                         ],
                         [
                             'label' => 'Cobranzas',
-                            'url' => ['/site/pago'],
+                            'url' => ['/persona/'],
                             'visible' => Yii::$app->user->can('admin'),
                         ],
                         [

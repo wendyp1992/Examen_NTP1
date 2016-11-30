@@ -52,18 +52,8 @@ AppAsset::register($this);
                             'visible' => Yii::$app->user->can('admin'),
                         ],
                         [
-                            'label' => 'Agregar Departamento',
-                            'url' => ['/departamento/create'],
-                            'visible' => Yii::$app->user->can('admin'),
-                        ],
-                        [
                             'label' => 'Asignar Departamento',
                             'url' => ['/persona/create'],
-                            'visible' => Yii::$app->user->can('admin'),
-                        ],
-                        [
-                            'label' => 'Tabla de Usuarios',
-                            'url' => ['/user/admin'],
                             'visible' => Yii::$app->user->can('admin'),
                         ],
                         [
