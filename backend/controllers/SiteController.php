@@ -7,14 +7,8 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 
-/**
- * Site controller
- */
 class SiteController extends Controller
 {
-    /**
-     * @inheritdoc
-     */
     public function behaviors()
     {
         return [
@@ -62,7 +56,7 @@ class SiteController extends Controller
     {
         return $this->render('index');
     }
-
+    
     /**
      * Login action.
      *
@@ -94,5 +88,9 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+    
+    public function actionPago() {
+        return $this->render('pago');
     }
 }

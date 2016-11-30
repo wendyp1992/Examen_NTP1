@@ -3,16 +3,16 @@
 namespace frontend\controllers;
 
 use Yii;
-use app\models\Noticias;
+use app\models\Producto;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * NoticiasController implements the CRUD actions for Noticias model.
+ * ProductoController implements the CRUD actions for Producto model.
  */
-class NoticiasController extends Controller
+class ProductoController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,13 +30,13 @@ class NoticiasController extends Controller
     }
 
     /**
-     * Lists all Noticias models.
+     * Lists all Producto models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Noticias::find(),
+            'query' => Producto::find(),
         ]);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class NoticiasController extends Controller
     }
 
     /**
-     * Displays a single Noticias model.
+     * Displays a single Producto model.
      * @param integer $id
      * @return mixed
      */
@@ -57,16 +57,16 @@ class NoticiasController extends Controller
     }
 
     /**
-     * Creates a new Noticias model.
+     * Creates a new Producto model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Noticias();
+        $model = new Producto();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->idP]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -75,7 +75,7 @@ class NoticiasController extends Controller
     }
 
     /**
-     * Updates an existing Noticias model.
+     * Updates an existing Producto model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -85,7 +85,7 @@ class NoticiasController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->idP]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -94,7 +94,7 @@ class NoticiasController extends Controller
     }
 
     /**
-     * Deletes an existing Noticias model.
+     * Deletes an existing Producto model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class NoticiasController extends Controller
     }
 
     /**
-     * Finds the Noticias model based on its primary key value.
+     * Finds the Producto model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Noticias the loaded model
+     * @return Producto the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Noticias::findOne($id)) !== null) {
+        if (($model = Producto::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -6,25 +6,24 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Personas';
+$this->title = 'Productos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="persona-index">
+<div class="producto-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Persona', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Producto', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'idPersona',
-            'iduser',
-            'idD',
-            'saldo',
+            'idP',
+            'nombreP',
+            'precio',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

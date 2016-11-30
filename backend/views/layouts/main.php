@@ -35,17 +35,42 @@ AppAsset::register($this);
             ]);
             $menuItems = [
                 ['label' => 'Inicio', 'url' => ['/site/index']],
-                ['label' => 'Usuarios', 'url' => ['/user/admin'], 'visible' => Yii::$app->user->can('admin')],
             ];
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => 'Login', 'url' => ['/user/security/login']];
             } else {
                 $menuItems[] = ['label' => 'Vista', 'url' => ['/../../frontend/web']];
+                $menuItems[] = [
+                    'label' => Yii::$app->user->identity->username,
+                    'items' => [
+                        [
+                            'label' => 'Agregar Departamento',
+                            'url' => ['/departamento'],
+                            'visible' => Yii::$app->user->can('admin'),
+                        ],
+                        [
+                            'label' => 'Asignar Departamento',
+                            'url' => ['/persona'],
+                            'visible' => Yii::$app->user->can('admin'),
+                        ],
+                        [
+                            'label' => 'Registrar Pagos',
+                            'url' => ['/../../frontend/web/site/pago'],
+                            'visible' => Yii::$app->user->can('admin'),
+                        ],
+                        [
+                            'label' => 'Reporte de Usuarios',
+                            'url' => ['/user/admin'],
+                            'visible' => Yii::$app->user->can('admin'),
+                        ],
+                        [
+                            'label' => 'Salir',
+                            'url' => ['/user/security/logout'],
+                            'linkOptions' => ['data-method' => 'post']
+                        ],
+                    ],
+                ];
                 $menuItems[] = '<li>'
-                        . Html::beginForm(['/site/logout'], 'post')
-                        . Html::submitButton(
-                                'Salir (' . Yii::$app->user->identity->username . ')', ['class' => 'btn btn-link logout']
-                        )
                         . Html::endForm()
                         . '</li>';
             }
@@ -57,11 +82,11 @@ AppAsset::register($this);
             ?>
 
             <div class="container">
-            <?=
-            Breadcrumbs::widget([
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ])
-            ?>
+                <?=
+                Breadcrumbs::widget([
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                ])
+                ?>
                 <?= Alert::widget() ?>
                 <?= $content ?>
             </div>

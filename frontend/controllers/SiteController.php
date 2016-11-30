@@ -135,6 +135,23 @@ class SiteController extends Controller {
         return $this->render('about');
     }
 
+    public function actionPedido() {
+       $model = new \app\models\Registro();
+        if ($model->load(Yii::$app->request->post())) {
+            Yii::$app->db->createCommand()
+                    ->insert('registro', [
+                        'uid' => Yii::$app->user->identity->username,
+                        'idP' => isset($_POST['respuesta_' . $i]) ? $_POST['respuesta_' . $i] : null,
+                    ])->execute();
+            return $this->render('pago');
+        }
+        return $this->render('pedido');
+    }
+
+    public function actionPago() {
+        return $this->render('pago');
+    }
+
     /**
      * Signs user up.
      *
@@ -201,7 +218,5 @@ class SiteController extends Controller {
                     'model' => $model,
         ]);
     }
-
-   
 
 }

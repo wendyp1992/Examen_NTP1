@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Persona */
+/* @var $model app\models\Registro */
 
-$this->title = 'Asignar Departamento';
-$this->params['breadcrumbs'][] = ['label' => 'Personas', 'url' => ['index']];
+$this->title = 'Create Registro';
+$this->params['breadcrumbs'][] = ['label' => 'Registros', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="persona-create">
+<div class="registro-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
