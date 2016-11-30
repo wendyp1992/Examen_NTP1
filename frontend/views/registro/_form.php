@@ -10,15 +10,12 @@ use yii\helpers\ArrayHelper;
 ?>
 
 <div class="registro-form">
-
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'uid')->textInput(['type' => "hidden", 'maxlength' => true, 'readonly'=>true, 'value'=> Yii::$app->user->identity->id])->label(" ") ?>
-    <?= $form->field($model, 'nombreu')->textInput(['maxlength' => true, 'readonly'=>true, 'value'=> Yii::$app->user->identity->username])->label("Empleado") ?>
-
-    <?= $form->field($model, 'idP')->radioList(ArrayHelper::map(app\models\Producto::find()->all(), 'idP', 'nombreP'))->label("Producto")?>
+    <?= $form->field($model, 'nombreu')->textInput(['maxlength' => true, 'readonly' => true, 'value' => Yii::$app->user->identity->username])->label("Empleado") ?>
+    <?= $form->field($model, 'idP')->radioList(ArrayHelper::map(app\models\Producto::find()->all(), 'idP', 'nombreP'))->label("Producto") ?>
+    <?= $form->field($model, 'uid')->textInput(['type' => "hidden", 'maxlength' => true, 'readonly' => true, 'value' => Yii::$app->user->identity->id])->label(" ") ?>
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'View', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

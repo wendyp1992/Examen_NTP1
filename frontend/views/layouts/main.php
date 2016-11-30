@@ -49,6 +49,11 @@ AppAsset::register($this);
                             'visible' => Yii::$app->user->can('admin'),
                         ],
                         [
+                            'label' => 'Cobranzas',
+                            'url' => ['/site/pago'],
+                            'visible' => Yii::$app->user->can('admin'),
+                        ],
+                        [
                             'label' => 'Pedido',
                             'url' => ['/registro/create'],
                         ],

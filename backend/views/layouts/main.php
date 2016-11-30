@@ -39,27 +39,30 @@ AppAsset::register($this);
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => 'Login', 'url' => ['/user/security/login']];
             } else {
-                $menuItems[] = ['label' => 'Vista', 'url' => ['/../../frontend/web']];
                 $menuItems[] = [
                     'label' => Yii::$app->user->identity->username,
                     'items' => [
                         [
+                            'label' => 'Vista',
+                            'url' => ['/../../frontend/web'],
+                        ],
+                        [
+                            'label' => 'Agregar Producto',
+                            'url' => ['/producto/create'],
+                            'visible' => Yii::$app->user->can('admin'),
+                        ],
+                        [
                             'label' => 'Agregar Departamento',
-                            'url' => ['/departamento'],
+                            'url' => ['/departamento/create'],
                             'visible' => Yii::$app->user->can('admin'),
                         ],
                         [
                             'label' => 'Asignar Departamento',
-                            'url' => ['/persona'],
+                            'url' => ['/persona/create'],
                             'visible' => Yii::$app->user->can('admin'),
                         ],
                         [
-                            'label' => 'Registrar Pagos',
-                            'url' => ['/../../frontend/web/site/pago'],
-                            'visible' => Yii::$app->user->can('admin'),
-                        ],
-                        [
-                            'label' => 'Reporte de Usuarios',
+                            'label' => 'Tabla de Usuarios',
                             'url' => ['/user/admin'],
                             'visible' => Yii::$app->user->can('admin'),
                         ],
