@@ -46,9 +46,14 @@ AppAsset::register($this);
                             'label' => 'Vista',
                             'url' => ['/../../frontend/web'],
                         ],
-                        [
+                         [
                             'label' => 'Agregar Producto',
                             'url' => ['/producto/create'],
+                            'visible' => Yii::$app->user->can('admin'),
+                        ],
+                        [
+                            'label' => 'Agregar Departamentos',
+                            'url' => ['/departamento/create'],
                             'visible' => Yii::$app->user->can('admin'),
                         ],
                         [

@@ -13,8 +13,10 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ]
         ],
-
 //        'user' => [
 //            'identityClass' => 'common\models\User',
 //            'enableAutoLogin' => true,
@@ -22,7 +24,7 @@ return [
 //        ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
-           // 'name' => 'advanced-backend',
+            // 'name' => 'advanced-backend',
             'name' => 'advanced-frontend',
         ],
         'log' => [
@@ -37,14 +39,18 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-   
-      'urlManager' => [
-      'enablePrettyUrl' => true,
-      'showScriptName' => false,
-      'rules' => [
-      ],
-      ],
-    
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                ['class' => 'yii\rest\UrlRule',
+                    'pluralize' => false,
+                    'controller' => 'registro'],
+//                'tokens' => [
+//                    '{id}' => '<id:\\w+>'
+//                ]
+            ],
+        ],
     ],
     'params' => $params,
     'modules' => [

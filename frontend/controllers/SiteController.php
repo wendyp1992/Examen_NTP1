@@ -72,6 +72,9 @@ class SiteController extends Controller {
     public function actionIndex() {
         return $this->render('index');
     }
+     public function actionSweb() {
+        return $this->render('sweb');
+    }
 
     /**
      * Logs in a user.

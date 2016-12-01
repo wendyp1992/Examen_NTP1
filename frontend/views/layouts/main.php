@@ -34,11 +34,11 @@ AppAsset::register($this);
                 ],
             ]);
             $menuItems = [
-               // ['label' => 'Inicio', 'url' => ['/site/index']],
+                    // ['label' => 'Inicio', 'url' => ['/site/index']],
             ];
             if (Yii::$app->user->isGuest) {
-               // $menuItems[] = ['label' => 'Registrarse', 'url' => ['/user/registration/register']];
-              //  $menuItems[] = ['label' => 'Entrar', 'url' => ['/user/security/login']];
+                // $menuItems[] = ['label' => 'Registrarse', 'url' => ['/user/registration/register']];
+                //  $menuItems[] = ['label' => 'Entrar', 'url' => ['/user/security/login']];
             } else {
                 $menuItems[] = [
                     'label' => Yii::$app->user->identity->username,
@@ -56,6 +56,10 @@ AppAsset::register($this);
                         [
                             'label' => 'Pedido',
                             'url' => ['/registro/create'],
+                        ],
+                        [
+                            'label' => 'Servicio Web',
+                            'url' => ['/site/sweb'],
                         ],
                         [
                             'label' => 'Salir',

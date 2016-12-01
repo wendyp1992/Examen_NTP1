@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
@@ -12,7 +11,6 @@ $this->title = 'Cobranzas';
 <div class="persona-index">
     <br>
     <center> <h1><?= Html::encode($this->title) ?></h1></center>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [

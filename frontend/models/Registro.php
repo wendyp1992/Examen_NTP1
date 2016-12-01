@@ -47,12 +47,10 @@ class Registro extends \yii\db\ActiveRecord {
     public function fields() {
         return [
             'idR',
-            'Usuario' => 'nombreu',
             'IdUsuario' => 'uid',
-             'IdProducto' => 'idP',
-            'IdProducto' => function(Registro $model) {
-                return ($model->idP == 1 ? 'Cafe' : $model->idP == 2 ? 'Te' : $model->idP == 3 ? 'Agua' : 'Chocolate' );
-            }
+            'Usuario' => 'nombreu',
+            'IdProducto' => 'idP',
+            
         ];
     }
 
