@@ -39,8 +39,8 @@ class Producto extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idP' => 'Id P',
-            'nombreP' => 'Nombre P',
+            'idP' => 'Id Producto',
+            'nombreP' => 'Nombre Producto',
             'precio' => 'Precio',
         ];
     }

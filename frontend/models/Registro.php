@@ -12,21 +12,19 @@ use Yii;
  * @property integer $idP
  * @property string $nombreu
  */
-class Registro extends \yii\db\ActiveRecord
-{
+class Registro extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'registro';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['uid', 'idP', 'nombreu'], 'required'],
             [['uid', 'idP'], 'integer'],
@@ -37,13 +35,25 @@ class Registro extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
-            'idR' => 'Id R',
-            'uid' => 'Uid',
-            'idP' => 'Id P',
-            'nombreu' => 'Nombreu',
+            'idR' => 'Id Pegistro',
+            'uid' => 'Id Usuario',
+            'idP' => 'Id Producto',
+            'nombreu' => 'Nombre de Usuario',
         ];
     }
+
+    public function fields() {
+        return [
+            'idR',
+            'Usuario' => 'nombreu',
+            'IdUsuario' => 'uid',
+             'IdProducto' => 'idP',
+            'IdProducto' => function(Registro $model) {
+                return ($model->idP == 1 ? 'Cafe' : $model->idP == 2 ? 'Te' : $model->idP == 3 ? 'Agua' : 'Chocolate' );
+            }
+        ];
+    }
+
 }

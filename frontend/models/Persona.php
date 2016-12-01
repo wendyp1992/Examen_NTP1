@@ -42,8 +42,8 @@ class Persona extends \yii\db\ActiveRecord
     {
         return [
             'idPersona' => 'Id Persona',
-            'iduser' => 'Iduser',
-            'idD' => 'Id D',
+            'iduser' => 'Id Usuario',
+            'idD' => 'Id Departamento',
             'saldo' => 'Saldo',
         ];
     }
